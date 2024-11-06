@@ -1,0 +1,35 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Students {
+  id: Float!
+  name: String!
+  specialization: Specialization!
+}
+
+type Specialization {
+  id: Float!
+  name: String!
+  department: Departments!
+  students: [Students!]
+}
+
+type Departments {
+  id: Float!
+  name: String!
+  specializations: [Specialization]
+}
+
+type University {
+  id: Float!
+  name: String!
+  departments: [Departments!]!
+}
+
+type Query {
+  universities: [University!]!
+  departments(universityId: Float!): [Departments!]!
+  specializations(departmentId: Float!): [Specialization!]!
+  students(specializationId: Float!): [Students!]!
+}
